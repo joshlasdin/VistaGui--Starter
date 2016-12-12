@@ -1,9 +1,9 @@
-const bb = require("backbone");
-const mn = require("backbone.marionette");
-const Router = require("./router");
-const RootView = require("./modules/global/root/view");
+const Backbone   = require("backbone");
+const Marionette = require("backbone.marionette");
+const Router     = require("./router");
+const RootView   = require("./modules/global/root/view");
 
-module.exports = mn.Application.extend({
+module.exports = Marionette.Application.extend({
 	region: "#app",
 
 	onStart() {
@@ -11,7 +11,7 @@ module.exports = mn.Application.extend({
 		this.showView(new RootView());
 
         // Invoke routing
-		bb.Intercept.start();
-		bb.history.start({ pushState: true });
+		Backbone.Intercept.start();
+		Backbone.history.start({ pushState: true });
 	}
 });

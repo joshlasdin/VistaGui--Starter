@@ -1,8 +1,8 @@
 "use strict";
 
-const $ = require("jquery");
-const _ = require("lodash");
-const bb = require("backbone");
+const $        = require("jquery");
+const _        = require("lodash");
+const Backbone = require("backbone");
 
 // Lodash shims for Backbone.Blazer
 _.pluck = _.map;
@@ -10,7 +10,7 @@ _.pluck = _.map;
 // Expose globals
 global.$ = global.jQuery = $;
 global._ = _;
-global.Backbone = bb;
+global.Backbone = Backbone;
 
 // Import Backbone plugins
 require("backbone.marionette");
