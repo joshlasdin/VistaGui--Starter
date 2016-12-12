@@ -1,0 +1,94 @@
+
+{
+	"OMA_DM": {
+		"Ver" : 2,
+		"OC" : 0
+	},
+
+	/**
+	 *	Information for Twilio server to send messages to cell phone.
+	 **/
+	"TwilioToken": "94d7b5e9495aceb86387bfe2624d6234",
+	"TwilioSID":   "ACd8d3a948236f5468ee095e212e16ecea",
+	"TwilioPhone": "7324105526",
+	"DestClient":  "7326828226",
+
+
+	"logfile": "./console.log",
+
+	"Pkg1SchemaFile":         "data_files/Pkg1Schema.json",
+	"Pkg1TestMessageFile":    "data_files/Pkg1Sample.json",
+	"Pkg1TestMessageFileBAD": "data_files/Pkg1BadSample.json",
+
+	// Watch this directory for any change.
+	// Used to monitor for sending out a Package#0
+	"DeltaDir" : "./data_files/deltadir",	// Dir in root of server (not src), used during testing to send a Pack#0 if anthing in this dir changes.
+
+	/**
+	 *	JWT - JSON Web Token information
+	 *	Generate a JSON Secret Web Token by running this Node script
+	 *		node -e "console.log(require('crypto').randomBytes(32).toString('hex'));"
+	 *	The result is the JWT_SECRET Key. This key is then stored in a file to be accessed
+	 *	by the server on demand. This key should NEVER be stored in a repository or given out.
+	 *
+	 *	https://github.com/dwyl/learn-json-web-tokens
+	 *	https://stormpath.com/blog/nodejs-jwt-create-verify
+	 **/
+	// "JWT_SECRET":           "2c2659535c78edbf16599692dc91f5e10c176d57c75040906d9938ae3780fe4c",
+	"JWT_EXPIRATION_MIN":   1,
+
+	"JWT_TokenFile":        "./data_files/JWT_Secret.json",
+	"JWT_Issuer":           "OMA-API",
+	"JWT_AUDIENCE":         "OMA-API-AUDIENCE",
+
+
+	"AVCodes" :[
+		{"Name": "User1", "access" : "test1", "verify" : "test1" },
+		{"Name": "User2", "access" : "test2", "verify" : "test2" },
+		{"Name": "User3", "access" : "test3", "verify" : "test3" },
+		{"Name": "User4", "access" : "test4", "verify" : "test4" },
+		{"Name": "User5", "access" : "test5", "verify" : "test5" }
+	],
+
+	"OptionData": {
+		"ServerID": "My Server",
+		"ConType_Any": 0,
+		"ConType_Cell": 1,
+		"ConType_WLAN": 2,
+		"ConType_WIRE": 3,
+		"PreferredConType": 0
+	},
+
+	"PORT":                 "1000",
+	"BASE_ROUTE":           "/",
+	"PROTOCOL":             "http://",
+	"HOST":                 "localhost",
+	"Authentication_Route": "/Authenticate",
+
+	/*
+	 *	Any strings that get displayed on the console or that get sent as part of the service
+	 *	should be listed here. This is done as a simple way to make it easy to change messages
+	 *	throughout the application rather than having to search through the code.
+	 *	Message names should start out with the name of the file ("GenOption" = GenOption.js) 
+	 *	followed by the abbreviation of the function within the file ("ANO" = AddNewOption)
+	 *	that sends out the message.
+	 */
+	"Msgs" : {
+		"Startup" : "Express server listening on port %d",
+		"Something" : "-----------------------------------\nA new request has been received - Method - %s, URL - %s, ROUTE - %s, Extra1 - %s, Extra2 - %s",
+		"HoorayGet" : "Hooray! Our OMA (Open Mobile Alliance) server is up",
+		"HoorayPost" : "Hooray! Our OMA (Open Mobile Alliance) can receive data",
+		"NoHeaderData" : "No Header Data was sent",
+		"ItsBroke" : "Something broke...(%s)",
+		"VerDsp" : "Version = %s",
+		"OCDsp" : "Option Count = %s",
+		"EADDR" : "EADDR In Use (is there another app using this addr/port?)",
+
+		"GenOption_ANO_NoOption" : "No Option Passed",
+		"GenOption_O2B_NoOption" : "No Option Passed",
+		"GenOption_O2B_BadOption" : "Invalid Options",		
+		"GenOption_GO_BadHeader" : "Missing or invalid header in package",
+		"GenOption_GO_MissingOptions" : "Missing Options from Package",
+		"GenOption_GO_O2BFailed" : "Option2Buf returned null"
+	}
+}

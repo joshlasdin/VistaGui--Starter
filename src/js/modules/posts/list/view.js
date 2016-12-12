@@ -1,7 +1,7 @@
-const mn = require('backbone.marionette');
-const PostItemView = require('../item/view');
+const mn = require("backbone.marionette");
+const PostItemView = require("../item/view");
 
 module.exports = mn.CollectionView.extend({
-    className: 'row',
-    childView: PostItemView,
+	className: "row",
+	childView: PostItemView
 });

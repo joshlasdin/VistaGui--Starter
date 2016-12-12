@@ -1,5 +1,5 @@
-const bb = require('backbone');
+const bb = require("backbone");
 
 module.exports = bb.Model.extend({
-    urlRoot: `https://jsonplaceholder.typicode.com/posts`,
+	urlRoot: "https://jsonplaceholder.typicode.com/posts"
 });

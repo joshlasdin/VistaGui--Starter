@@ -1,0 +1,59 @@
+{
+
+
+	/**
+	 *	JWT - JSON Web Token information
+	 *	Generate a JSON Secret Web Token by running this Node script
+	 *		node -e "console.log(require('crypto').randomBytes(32).toString('hex'));"
+	 *	The result is the JWT_SECRET Key. This key is then stored in a file to be accessed
+	 *	by the server on demand. This key should NEVER be stored in a repository or given out.
+	 *
+	 *	https://github.com/dwyl/learn-json-web-tokens
+	 *	https://stormpath.com/blog/nodejs-jwt-create-verify
+	 **/
+	"JWT_EXPIRATION_MIN": 5,
+	"JWT_TokenFile": "./data_files/JWT_Secret.json",
+	"JWT_Issuer": "VistA-API",
+	"JWT_AUDIENCE": "VistA-API-AUDIENCE",
+
+
+	"AVCodes": [{
+		"Name": "User1",
+		"access": "VS2017",
+		"verify": "VS2017((("
+	}, {
+		"Name": "User2",
+		"access": "test2",
+		"verify": "test2"
+	}, {
+		"Name": "User3",
+		"access": "test3",
+		"verify": "test3"
+	}, {
+		"Name": "User4",
+		"access": "test4",
+		"verify": "test4"
+	}, {
+		"Name": "User5",
+		"access": "test5",
+		"verify": "test5"
+	}],
+
+	"PORT": "8443",		// Note: linux cap_net_bind_service limits use of ports <  1024
+	"BASE_ROUTE": "/",
+	"FACILITIES_ROUTE": "facilities",
+	"PROTOCOL": "https://",
+	"HOST": "vsgui.dbitpro.com",
+
+
+	/*
+	 *	Any strings that get displayed on the console or that get sent as part of the service
+	 *	should be listed here. This is done as a simple way to make it easy to change messages
+	 *	throughout the application rather than having to search through the code.
+	 *	Message names should start out with the name of the file ("GenOption" = GenOption.js) 
+	 *	followed by the abbreviation of the function within the file ("ANO" = AddNewOption)
+	 *	that sends out the message.
+	 */
+	"Msgs": {
+	}
+}

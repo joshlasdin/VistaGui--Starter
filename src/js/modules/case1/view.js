@@ -1,6 +1,6 @@
-const mn = require('backbone.marionette');
+const mn = require("backbone.marionette");
 
 module.exports = mn.View.extend({
-    className: 'starter-template',
-    template: require('./template.hbs'),
+	className: "starter-template",
+	template: require("./template.hbs")
 });
