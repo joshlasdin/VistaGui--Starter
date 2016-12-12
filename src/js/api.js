@@ -7,7 +7,8 @@ const APIRoutes = {
 	"API_Base": "https://",
 	"SampleAPI": "jsonplaceholder.typicode.com/posts",
 	"Facilities": "vsgui.dbitpro.com:8443/facilities",
-	"Case": "vsgui.dbitpro.com:8443/v1/case"
+	"Case": "vsgui.dbitpro.com:8443/v1/case",
+	"Authentication": ""
 };
 
 const getURL = function(apiName) {

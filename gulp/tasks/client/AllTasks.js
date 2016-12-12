@@ -108,7 +108,7 @@ const FontsFnc = function() {
 		$.changed(dFontFiles),
 		$.gulp.dest(dFontFiles)
 	]);
-	$.combined.on("error", console.error.bind(console));
+	combined.on("error", console.error.bind(console));
 	return combined;
 };
 
