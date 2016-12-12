@@ -2,11 +2,14 @@
 
 const $ = require("../../config.js");
 
-$.gulp.task("dev", ["pages", "scripts", "styles", "connect", "watch"]);
+$.gulp.task("dev", ["pages", "fonts", "images", "scripts", "styles", "connect", "watch"]);
 
-$.gulp.task("watch", () => {
-	$.gulp.watch("./src/*.html", ["pages"]);
-	$.gulp.watch("./src/styles/**/*", ["styles"]);
+$.gulp.task("watch", function() {
+	$.gulp.watch($.config.src + "/*.html",      ["pages"]);
+	$.gulp.watch($.config.src + "/styles/**/*", ["styles"]);
+	$.gulp.watch($.config.src + "/fonts/*",     ["fonts"]);
+	$.gulp.watch($.config.src + "/images/*",    ["images"]);
+	$.gulp.watch($.config.src + "/js/**/*",     ["scripts"]);
 });
 
 $.gulp.task("connect", () => {
@@ -23,20 +26,37 @@ $.gulp.task("connect", () => {
 
 
 
+
+
+
+
+
 /********************************************************************************/
+const cleanTask = function (done) {
+	$.del([$.config.dest + "/**"], done);
+};
+
+$.gulp.task(
+	"clean", 
+	"Cleans out the ${$.config.dest} folder",
+	[],
+	cleanTask);
+
+
+/********************************************************************************/
+const PagesFnc = function() {
+	console.log("------------------ Reloading Pages ------------------");
+	
+	$.gulp.src($.config.src + "/*.html")
+		.pipe($.gulp.dest($.config.dest))
+		.pipe($.connect.reload());
+};
+
 $.gulp.task(
 	"pages", 
-	"",
+	"Check and load any HTML pages into the build folder",
 	[],
-	function() { 
-		console.log("------------------");
-		console.log($.config.dest);
-		console.log("------------------");
-		
-		$.gulp.src("./src/*.html")
-			.pipe($.gulp.dest($.config.dest))
-			.pipe($.connect.reload());
-	}
+	PagesFnc
 );
 
 /*************************************************/
@@ -51,6 +71,7 @@ const sStylesSettings = {
 	]
 };
 const stylesFnc = function() {
+	console.log("------------------ Reloading Styles ------------------");
 	let combined = $.combiner.obj([
 		$.gulp.src(sStylesFiles),
 		$.sourcemaps.init(),
@@ -80,6 +101,7 @@ const sFontFiles = [
 const dFontFiles = $.config.dest + "/fonts";
 
 const FontsFnc = function() {
+	console.log("------------------ Reloading Fonts ------------------");
 	// let bs = browserSync.get("Server");
 	let combined = $.combiner.obj([
 		$.gulp.src(sFontFiles),
@@ -103,6 +125,7 @@ const sImageFiles = $.config.src + "/images/*";
 const dImageFiles = $.config.dest + "/images";
 
 const ImageFnc = function() {
+	console.log("------------------ Reloading Images ------------------");
 	let combined = $.combiner.obj([
 		$.gulp.src(sImageFiles),
 		$.changed(dImageFiles),
@@ -119,13 +142,15 @@ $.gulp.task(
 	[],
 	ImageFnc
 );
+
+
 /********************************************************************************/
 
+$.gulp.task("scripts", function() {
+	console.log("------------------ Bundling Script Files ------------------");
 
-
-$.gulp.task("scripts", () => {
 	let bundler = $.browserify({
-		entries: "./src/js/index.js",
+		entries: $.config.src + "/js/index.js",
 		debug: true,
 		extensions: [".js", ".hbs"],
 	});
@@ -145,6 +170,7 @@ $.gulp.task("scripts", () => {
 		.transform($.hbsfy.configure({ extensions: ["hbs"] }));
 
 	function rebundle() {
+		console.log("------------------ RE-Bundling Script Files ------------------");
 		$.gutil.log("Bundle started...");
 		return bundler
 			.bundle()
@@ -158,6 +184,8 @@ $.gulp.task("scripts", () => {
 			.pipe($.connect.reload());
 	}
 
-	if ($.args.watch) { bundler.on("update", () => rebundle()); }
+	if ($.args.watch) { 
+		bundler.on("update", rebundle); 
+	}
 	rebundle();
 });
