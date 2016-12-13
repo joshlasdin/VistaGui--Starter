@@ -1,5 +1,5 @@
 const mn = require("backbone.marionette");
-const PostListView = require("./list/view");
+const FacilityListView = require("./list/view");
 
 module.exports = mn.View.extend({
 	template: require("./template.hbs"),
@@ -9,8 +9,7 @@ module.exports = mn.View.extend({
 	},
 
 	onRender() {
-		debugger;
-		this.showChildView("list", new PostListView({
+		this.showChildView("list", new FacilityListView({
 			collection: this.collection
 		}));
 	}

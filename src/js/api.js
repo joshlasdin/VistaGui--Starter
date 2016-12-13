@@ -6,7 +6,10 @@
 const APIRoutes = {
 	"API_Base": "https://",
 	"SampleAPI": "jsonplaceholder.typicode.com/posts",
-	"Facilities": "vsgui.dbitpro.com:8443/facilities",
+	"Facilities": "vsgui.dbitpro.com:8443/facilities",					// no token needed
+
+			// API calls below here require token
+	"FacilitiesList": "vsgui.dbitpro.com:8443/v1/facilities/list",
 	"Case": "vsgui.dbitpro.com:8443/v1/case",
 	"Authentication": ""
 };

@@ -9,7 +9,6 @@ module.exports = mn.View.extend({
 	},
 
 	onRender() {
-		debugger;
 		this.showChildView("list", new PostListView({
 			collection: this.collection
 		}));

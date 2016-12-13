@@ -1,0 +1,173 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Vista Surgery API",
+		"_postman_id": "71c420a5-881d-7ef5-dc5b-7f5c43094e49",
+		"description": "A set of API calls to exercise the Vista Surgery API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Patient",
+			"description": "patient related information",
+			"item": [
+				{
+					"name": "Get Patient by SSN",
+					"request": {
+						"url": "http://localhost:7000/v1/patient/ssn/4289023",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NDb2RlIjoiVlMyMDE3IiwidmVyaWZ5Q29kZSI6IlZTMjAxNygoKCIsImV4cCI6MTQ3ODIwMzg0MywiaXNzIjoidmlzdGEtc3VyZ2VyeS1hcGkiLCJhdWQiOiJ2aXN0YS1zdXJnZXJ5LWFwaSIsImlhdCI6MTQ3ODIwMjA0M30.ohsznijWnwwQ8UKZNTTa-V8yaEXx5wyH2AeZpxyvTTU",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "get a patient by ssn"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Patient by Last Five",
+					"request": {
+						"url": "http://localhost:7000/v1/patient/five/f0500",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NDb2RlIjoiVlMyMDE3IiwidmVyaWZ5Q29kZSI6IlZTMjAxNygoKCIsImV4cCI6MTQ3ODIwNDA0OCwiaXNzIjoidmlzdGEtc3VyZ2VyeS1hcGkiLCJhdWQiOiJ2aXN0YS1zdXJnZXJ5LWFwaSIsImlhdCI6MTQ3ODIwMjI0OH0.d4_gCHbodecMiXyzQsICfqURI0vzKvCGE6CNRqFokWA",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "get a patient by Last Five, First letter of last name and last four of ssn"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Patient By ID",
+					"request": {
+						"url": "http://localhost:7000/v1/patient/5",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NDb2RlIjoiVlMyMDE3IiwidmVyaWZ5Q29kZSI6IlZTMjAxNygoKCIsImV4cCI6MTQ3ODIwNDU2NCwiaXNzIjoidmlzdGEtc3VyZ2VyeS1hcGkiLCJhdWQiOiJ2aXN0YS1zdXJnZXJ5LWFwaSIsImlhdCI6MTQ3ODIwMjc2NH0._iQbD_k_nXHowux1vvKn1MSQgvknCJMSiSDNqmOk2w4",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "Select Patient by ID"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Unauthenticated Hello World",
+			"request": {
+				"url": "http://localhost:3000/",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "Open to the world, unauthenticated hello world"
+			},
+			"response": []
+		},
+		{
+			"name": "Authentication",
+			"request": {
+				"url": "http://localhost:7000/authenticate",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "access",
+							"value": "VS2017",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "verify",
+							"value": "VS2017(((",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": "Authenticate to get token"
+			},
+			"response": []
+		},
+		{
+			"name": "Failed Authentication",
+			"request": {
+				"url": "localhost:3000/test",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "Failed Authentication example"
+			},
+			"response": []
+		},
+		{
+			"name": "Successful Authentication",
+			"request": {
+				"url": "localhost:3000/test",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3MiOiJ0ZXN0IiwidmVyaWZ5IjoidGVzdCIsImV4cCI6MTQ3Njc5Nzk4MywiaXNzIjoidmlzdGEtc3VyZ2VyeS1hcGkiLCJhdWQiOiJ2aXN0YS1zdXJnZXJ5LWFwaSIsImlhdCI6MTQ3Njc5NjE4M30.MMz7BAAoPebguRI7F6DObUALgU5efzOZXpB28T-oLj8",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "successful Authentication example, make sure to get a new token by the authentication endpoint"
+			},
+			"response": []
+		}
+	]
+}

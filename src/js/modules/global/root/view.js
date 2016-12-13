@@ -1,6 +1,7 @@
 const mn = require("backbone.marionette");
 const Radio = require("backbone.radio");
 const HeaderView = require("../header/view");
+const SidebarView = require("../sidebar/view");
 
 module.exports = mn.View.extend({
 	initialize() {
@@ -10,12 +11,14 @@ module.exports = mn.View.extend({
 	template: require("./template.hbs"),
 
 	regions: {
-		header: { el: ".r-header", replaceElement: true },
-		body: ".r-body",
+		header:  { el: ".r-header", replaceElement: true },
+		sidebar: { el: ".r-sidebar" },
+		body: ".r-body"
 	},
 
 	onRender() {
 		this.showChildView("header", new HeaderView());
+		this.showChildView("sidebar", new SidebarView());
 	},
 
 	onAttach() {

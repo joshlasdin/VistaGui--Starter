@@ -1,0 +1,11 @@
+Ok, trying to figure and document the layout process.
+1. Everything starts in global.
+2. Global.root is where the start of everything is listed.
+The view gives us the regions:
+tag specified by r-header is completely replaced (why use a class and not an ID?) by the header view (global.header.view)
+tag specified by r-body has stuff inserted (the r-body tag is NOT replaced)
+
+Can we add a sidebar region here for this as well?
+
+Everything starts off in global
+The global root view lists the regions that will be managed.

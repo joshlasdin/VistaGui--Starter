@@ -1,3 +1,4 @@
+// Fetches a single record based on the blog "Posts" model
 const bb = require("backbone");
 const Radio = require("backbone.radio");
 const PostView = require("./view");
