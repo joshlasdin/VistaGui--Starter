@@ -4,10 +4,16 @@ module.exports = Marionette.View.extend({
 	className: "starter-template",
 	template: require("./template.hbs"),
     ui: {
-    modalxxx: "#myModal"
-  },
-  onAttach: function() {
-    this.ui.modalxxx.modal('show');
-  }
+		modalxxx: "#myModal"
+	},
 
+	templateContext() {
+		return {
+			facilities: this.getOption('facilities').toJSON(),
+		};
+	},
+
+	onAttach: function() {
+		this.ui.modalxxx.modal('show');
+	}
 });
