@@ -15,7 +15,6 @@
 	"JWT_TokenFile": "./data_files/JWT_Secret.json",
 	"JWT_Issuer": "VistA-API",
 	"JWT_AUDIENCE": "VistA-API-AUDIENCE",
-	"JWT_Token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NDb2RlIjoiVlMyMDE3IiwidmVyaWZ5IjoiVlMyMDE3KCgoIiwic3RhdGlvbklkIjoiNjQ4IiwiZXhwIjoxNDgxNTgzOTU5LCJpc3MiOiJ2aXN0YS1zdXJnZXJ5LWFwaSIsImF1ZCI6InZpc3RhLXN1cmdlcnktYXBpIiwiaWF0IjoxNDgxNTgyMTU5fQ.GTrbR9LdsQuBEIxcju--HEyaRMZt74pNXuZBWzAwfVs",
 
 
 	"AVCodes": [{

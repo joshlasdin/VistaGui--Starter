@@ -7,8 +7,7 @@ const PostsCollection = require("../../entities/posts/collection");
 module.exports = bb.Blazer.Route.extend({
 	prepare(routeData) {
 		routeData.posts = new PostsCollection();
-		let foo = routeData.posts.fetch();
-		return foo;
+		return routeData.posts.fetch();
 	},
 
 	execute(routeData) {

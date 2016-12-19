@@ -28,12 +28,32 @@
 }
 
 
-/* to toggle the sidebar, just switch the CSS classes */
+/* to toggle the sidebar, just switch the CSS classes
 $("#sidebar").toggleClass("collapsed");
 $("#content").toggleClass("col-md-12 col-md-9");
+*/
 
 .r-sidebar {    /* Needs to be cleaned up a bit */
   margin-top: 60px;
   width: 30em;
   color: red;
 }
+
+#sidebar {
+  padding-left:5px;
+  padding-right:5px;
+}
+#sidebar.card {
+  background: #fff;
+  border-radius: 5px;
+  display: inline-block;
+  height: 90hv;
+  margin: 1rem;
+  position: relative;
+  width: 300px;
+  padding: 0.5em;
+
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+

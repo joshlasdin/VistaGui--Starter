@@ -1,10 +1,47 @@
+<style>
+
+  /* label[for='stationId'] { color: #c00; } */
+
+  .loginMsg {
+    border: 1px solid;
+    border-radius: 5px;
+    margin: 10px 0px;
+    padding: 7px 10px 7px 10px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+  }
+
+  .loginMsgError{
+    color: #D8000C;
+    background-color: #FFBABA;
+  }
+
+  .loginMsgSuccess{
+    color: #4F8A10;
+    background-color: #DFF2BF;
+  }
+
+  .spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -50px; /* half width of the spinner gif */
+    margin-top: -50px; /* half height of the spinner gif */
+    text-align:center;
+    z-index:1234;
+    overflow: auto;
+    width: 100px; /* width of the spinner gif */
+    height: 102px; /*hight of the spinner gif +2px to fix IE8 issue */
+  }
+
+</style>
+
 <!--
-
-<h1>About <abbr title="Veterans Health Information Systems &amp; Technology Architecture">VistA</abbr> Surgery</h1>
-
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+<h1>Login <abbr title="Veterans Health Information Systems &amp; Technology Architecture">VistA</abbr> Surgery</h1>
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">
+ Open Modal
+</button>
 -->
-
 
 <!-- Modal -->
 
@@ -14,132 +51,98 @@
     <!-- Modal content-->
     <div class="modal-content">
 
+      <div class="login-form-container">
+        <div class="login-container">
+          <div class="modal-header">
+            <h1 class="logo text-center" aria-hidden="true">
+              <abbr title="Veterans Health Information Systems &amp; Technology Architecture">VistA</abbr> Surgery
+            </h1>
+          </div>
 
-  <div class="login-form-container">
-    <div class="login-container">
+          <div class="modal-body login-container-body">
+            <p class="sr-only">All fields are required</p>
+            <div id="login-form-region">
+              <!--
+              <form action="#" method="post" class="text-left adk-form form-container">
+              -->
+              <p class="sr-only">* indicates a required field. Tab to enter form.</p>
 
-    <div class="modal-header">
-      <h1 class="logo text-center" aria-hidden="true">
-      <abbr title="Veterans Health Information Systems &amp; Technology Architecture">VistA</abbr> Surgery
-      </h1>
-      </div>
-
-      <div class="modal-body login-container-body">
-        <p class="sr-only">All fields are required</p>
-        <div id="login-form-region">
-          <form action="#" method="post" class="text-left adk-form form-container">
-            <p class="sr-only">* indicates a required field. Tab to enter form.</p>
-
-            <div>
-              <p id="errorMessage" class="text-danger text-center bottom-padding-xs" aria-live="assertive"></p>
-            </div>
-
-            <div>
               <div>
-                <p id="facilityListLoadingMessage" class="hidden">Loading facilities...</p>
+                <p id="errorMessage" class="text-danger text-center bottom-padding-xs" aria-live="assertive"></p>
               </div>
 
-              <div class="control form-group select-control selectedFacility" role="combobox">
-                <label for="selectedFacility">Facility *</label>
-                <select
-                class="form-control select2-hidden-accessible"
-                id="selectedFacility"
-                name="selectedFacility"
-                title="Facility edit. Press enter to activate"
-                required=""
-                size="1" tabindex="-1" aria-hidden="true">
+              <div>
+                <div>
+                  <p id="facilityListLoadingMessage" class="hidden">Loading facilities...</p>
+                </div>
 
-{{#each facilities}}<option value={{_id}}>{{facilityName}}</option>{{/each}}
+                <div class="control form-group select-control selectedFacility" role="combobox">
 
+                  <label for="stationId">Facility *</label> <!-- label[for='address1'] { color: #c00; } -->
+                  <select
+                    class="form-control select2-hidden-accessible"
+                    id="stationId"
+                    name="stationId"
+                    title="Facility edit. Press enter to activate"
+                    required=""
+                    size="1" tabindex="-1" aria-hidden="true">
+                    {{#each facilities}}<option value={{stationId}}>{{facilityName}}</option>{{/each}}
+                  </select>
 
+                </div>
+              </div>
 
+              <div class="control form-group input-control accessCode">
+                <label for="accessCode">Access code *</label>
+                <input type="password"
+                       autocomplete="off" class="form-control" id="accessCode" name="accessCode"
+                       maxlength="255" title="Enter in access code" required="" />
+              </div>
 
+              <div id="verifyCodeDiv" class="control form-group input-control verifyCode">
+                <label for="verifyCode">Verify code *</label>
+                <input type="password"
+                       autocomplete="off" class="form-control" id="verifyCode" name="verifyCode"
+                       maxlength="255" title="Enter in verify code" required="" />
+              </div>
 
-
-
-
-                  <!--
-                  <option value="507">
-                    KODAK
-                  </option>
-
-                  <option value="613">
-                    MARTINSBURG
-                  </option>
-
-                  <option value="500">
-                    PANORAMA
-                  </option>
-
-                  <option value="688">
-                    WASHINGTON
-                  </option>
-                  -->
-
-                </select>
-
+              <div class="control inline-display button-control login">
+                <button id="loginBtn" type="submit" class="btn btn-default signin-button btn btn-primary btn-block" xxxdata-dismiss="modal" title="Press enter to sign in">Sign In</button>
                 <!--
-                <span class=
-                "select2 select2-container select2-container--default" role="application"
-                dir="ltr" style="width: 100%;">
-                  <span class="selection">
-                    <span class=
-                "select2-selection select2-selection--single" x-is-haspopup="true"
-                x-is-expanded="false" title="Facility edit. Press enter to activate"
-                tabindex="0" x-is-labelledby=
-                "select2-selectedFacility-container">
-
-                      <span class="select2-selection__rendered" id="select2-selectedFacility-container" title="KODAK">KODAK</span>
-                    </span>
-                  </span>
-                </span>
+                <button id="loginBtn" type="submit" class="btn btn-default signin-button btn btn-primary btn-block" data-dismiss="modal" title="Press enter to sign in">Sign In</button>
                 -->
-
               </div>
-            </div>
 
-            <div class="control form-group input-control accessCode">
-              <label for="accessCode">Access code *</label>
-              <input type="password"
-              autocomplete="off" class="form-control" id="accessCode" name="accessCode"
-              maxlength="255" title="Enter in access code" required="" />
-            </div>
-
-            <div class="control form-group input-control verifyCode">
-              <label for="verifyCode">Verify code *</label>
-              <input type="password"
-              autocomplete="off" class="form-control" id="verifyCode" name="verifyCode"
-              maxlength="255" title="Enter in verify code" required="" />
-            </div>
-
-            <div class="control inline-display button-control login">
-              <button type="submit" class="btn btn-default signin-button btn btn-primary btn-block" data-dismiss="modal"
-              title="Press enter to sign in">Sign In</button>
-            </div>
-
-            <div>
-              <div class="hidden" id="screenReaderAuthenticating">
-                Authenticating
+              <div>
+                <div class="hidden" id="screenReaderAuthenticating">
+                  Authenticating
+                </div>
               </div>
+              <!-- </form> -->
             </div>
-          </form>
-        </div>
-      </div>
-      </div>
-
-
-      <div class="modal-footer login-container-footer">
-        <div class="all-padding-sm top-padding-no text-center">
-          <a id="linkHelp-logon" class="help-icon-link" href=
-          "http://vaww.oed.portal.va.gov/pm/iehr/vista_evolution/eHMP/Help_Wiki/Wiki%20Page%20Library/Accessing%20the%20eHMP%20Application.aspx"
-          target="helpIconUniqueWindow" title=
-          "Press enter to access the help content. You will be redirected to a new browser window.">
-          Need Help Logging In?</a>
+          </div>
         </div>
 
-        <div>
-          <p class="text-center">VistA Surgery GUI 1.0.0 ------------------------</p>
+        <div class="modal-footer login-container-footer">
+          <div class="all-padding-sm top-padding-no text-center">
+
+            <a id="linkHelp-logon" class="help-icon-link" href=
+              "http://vaww.oed.portal.va.gov/pm/iehr/vista_evolution/eHMP/Help_Wiki/Wiki%20Page%20Library/Accessing%20the%20eHMP%20Application.aspx"
+               target="helpIconUniqueWindow" title=
+                 "Press enter to access the help content. You will be redirected to a new browser window.">
+              Need Help Logging In?
+            </a>
+
+          </div>
+          <div>
+            <p class="text-center">VistA Surgery GUI 1.0.0</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
+</div>
+
+<div id="spinner" class="spinner" style="display:none;">
+  <img id="img-spinner" src="../../../images/spinner-blue.gif" alt="Loading"/>
+</div>

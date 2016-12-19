@@ -1,59 +1,37 @@
-<div class="container-fluid">
 <nav class="navbar navbar-default navbar-fixed-top">
-
-    <div class="application-header-items-left">
-      <!-- Menu Items for mobile Device Screen Sizes -->
+<div class="container-fluid">
+    <div class="application-header-items-left" style="margin:2px 0">
+      <!-- Menu Items for mobile Device Screen Sizes
       <button type="button" class="navbar-toggle collapsed" aria-expanded="false" aria-controls="navbar">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar">xxx</span>
         <span class="icon-bar">ccc</span>
-        <span class="icon-bar">vvv</span>      
+        <span class="icon-bar">vvv</span>
       </button>
-
-
-      <h1>
-        <a class="navbar-brand" data-toggle="tooltip" title="VistA Surgery Home" href="#" style="margin-top:2px;">
-          <i class="fa fa-user-md" aria-hidden="true"><strong>⚕</strong></i>
-          <abbr title="Veterans Health Information Systems &amp; Technology Architecture">VistA</abbr> Surgery
-        </a>
-
-    <div id="navbar" class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about/">About</a></li>
-            <li><a href="/posts/">Posts</a></li>
-            <li><a href="/login/">Login</a></li>
-        </ul>
-    </div>
-        
-      </h1>
-
-
-
+      -->
+      
+      <h1><a class="navbar-brand" data-toggle="tooltip" title="VistA Surgery Home" href="#" style="margin: 2px 0 0 20px;">
+      <i class="fa fa-user-md fa-lg" aria-hidden="true"><strong>⚕</strong></i>
+      <abbr title="Veterans Health Information Systems &amp; Technology Architecture">VistA</abbr> Surgery
+      </a></h1>
     </div>
 
-    <div class="navbar-right pull-right flex-display" style="margin:0;">
-
-      <div class="application-user-icons">
+    <div class="navbar-right pull-right flex-display application-user-icons" style="margin:0;">
         <ul class="nav navbar-nav pull-left divider-left divider-right">
-
             <li id="myNotificationsButton" role="group" class="btn-group dropdown alert-dropdown">
                 <div class="dropdown-toggle">
                     <button aria-haspopup="true" data-toggle="tooltip" aria-expanded="false" title="Notifications Button. Press enter to view notifications." type="button" class="btn btn-sm btn-link" style="margin:0;"><i class="fa fa-bell-o fa-lg"></i>
                     </button>
                 </div>
             </li>
-        </ul>
-      </div>
 
-        <ul class="nav navbar-nav">
             <li class="dropdown">
-                <a href="#" id="CurrentUser" data-toggle="tooltip" class="dropdown-toggle" aria-expanded="false" title="Press enter to activate user menu" style="margin: 0;">
-                    <i class="fa fa-user-md font-size-15"></i> {{ UserName }}  <i class="fa fa-caret-down"></i>
+                <a href="#" id="CurrentUser" data-toggle="tooltip" class="dropdown-toggle" aria-expanded="false" title="Press enter to activate user menu" style="margin:0;">
+                    <i class="fa fa-user-md fa-lg"></i>   <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu left-padding-sm right-padding-sm">
-                    <li>Site: {{ SiteName }}</li>
-                    <li>Role: {{ UserRole }}</li>
+                    <li>Site: </li>
+                    <li>Role: </li>
                     <li role="separator" class="divider"></li>
                     <li>
                         <a href="#" id="logoutButton" class="pull-left" data-toggle="tooltip" title="Press enter to sign out"><i class="right-padding-xs fa fa-power-off"></i> Sign Out</a>
@@ -63,8 +41,8 @@
 
             <li class="divider-left help-button-container">
               <span class="help-icon-button-container">
-                <a target="helpIconUniqueWindow" href="http://VistA_GUI.com/Help_Wiki/Wiki%20Page%20Library/Global%20Navigation.aspx" data-toggle="tooltip" title="Help - Opens a new browser window" id="WikiHelp" class="help-icon-link btn btn-icon">
-                  <i class="fa fa-question-circle fa-lg" style="margin:8px;">
+                <a target="helpIconUniqueWindow" href="http://VistA_GUI.com/Help_Wiki/Wiki%20Page%20Library/Global%20Navigation.aspx" data-toggle="tooltip" title="Help - Opens a new browser window" id="WikiHelp" class="help-icon-link btn btn-icon" style="margin-bottom: 0 !important;">
+                  <i class="fa fa-question-circle fa-lg" style="margin: 5px 0 0 0;">
                     <span class="sr-only">
                       Access the help content in a new browser window.
                     </span>
@@ -72,8 +50,7 @@
                 </a>
               </span>
             </li>
-            
         </ul>
     </div>    <!-- navbar-right pull-right flex-display -->
-</nav>
 </div>
+</nav>

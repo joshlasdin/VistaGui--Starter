@@ -11,14 +11,15 @@ const SelPatientRoute = require("./modules/sel_patient/route");
 
 module.exports = Backbone.Blazer.Router.extend({
 	routes: {
-		"": new IndexRoute(),
-		"about/":           new AboutRoute(),
-		"posts/":           new PostsRoute(),
-		"posts/:id/":       new PostRoute(),
+		"/":            new IndexRoute(),
+		// "page1/":      new IndexRoute(),
+		"about/":      new AboutRoute(),
+		"posts/":      new PostsRoute(),
+		"posts/:id/":  new PostRoute(),
 
-		"case1/":           new Case1Route(),
-		"login/":           new LoginRoute(),
-		"facilities/":      new FacilitiesRoute(),
-		"SelPatientRoute/": new SelPatientRoute()
+		"case1/":      new Case1Route(),
+		"login/":      new LoginRoute(),
+		"facilities/": new FacilitiesRoute(),
+		"selpatient/": new SelPatientRoute()
 	}
 });

@@ -15,6 +15,7 @@ $.gulp.task("watch", function() {
 $.gulp.task("connect", () => {
 	$.connect.server({
 		root: $.config.dest,
+		port: 8081,
 		livereload: true,
 		middleware: function(connect, opt) {
 			return [

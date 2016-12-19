@@ -65,11 +65,13 @@ body {
 }
 
 
-.navbar.navbar-default .container-fluid ul.nav.navbar-nav li button, .navbar.navbar-default .container-fluid ul.nav.navbar-nav li a, .navbar.navbar-default .container-fluid ul.nav.navbar-nav li p, .navbar-default .navbar-brand {
+.navbar.navbar-default .container-fluid ul.nav.navbar-nav li button, 
+.navbar.navbar-default .container-fluid ul.nav.navbar-nav li a, 
+.navbar.navbar-default .container-fluid ul.nav.navbar-nav li p, 
+.navbar-default .navbar-brand {
     color: #0d68a1;   /* NavBarTextColor color: #132F50; */
     margin-top: -3px;
-    padding: 4px 10px;
-    padding-bottom: 2px;
+    padding: 0 20px 0 0;
 }
 
 .navbar-brand {
@@ -78,6 +80,7 @@ body {
     padding: 0px 15px;
     line-height: 20px;
     height:20px;
+    padding-left: 5em;
 }
 
 
@@ -194,6 +197,53 @@ html body .container-fluid.body-content {
 }
 
 
+
+/* 
+* Taken from - https://scotch.io/bar-talk/different-tricks-on-how-to-make-bootstrap-columns-all-the-same-height
+* for equal height cards/panels
+*/
+.row.is_flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+.row.is_flex > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+}
+
+/*
+* And with max cross-browser enabled.
+* Nobody should ever write this by hand. 
+* Use a preprocesser with autoprefixing.
+*/
+.row.is_flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.row.is_flex > [class*='col-'] {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+
+
+
+
+
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
@@ -218,7 +268,7 @@ html body .container-fluid.body-content {
   .jumbotron {
     border-bottom: 0;
   }
-  }
+}
 
 
 
@@ -262,3 +312,4 @@ html body .container-fluid.body-content {
         display: block;
     }
 }
+

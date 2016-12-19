@@ -3,5 +3,5 @@ const FacilityItemView = require("../item/view");
 
 module.exports = mn.CollectionView.extend({
 	className: "row",
-	FacilityView: PostItemView
+	FacilityView: FacilityItemView
 });
